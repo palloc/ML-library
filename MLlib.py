@@ -15,4 +15,6 @@ def Calc_distance(data, center, d):
         distance += pow(abs(data[i] - center), 2)
     return sqrt(distance)
     
+#First random clusturing
+def Random_clustur(all_data, cluster_num):
     
