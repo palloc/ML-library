@@ -11,16 +11,19 @@ class K_means_data:
         self.data = data
         clustur = 0
 
+
+        
         
 #Calculate distance from center
-def Calc_distance(data, center, d):
+def Calc_distance(data, point):
     distance = 0
 
     #Calc d dimentional
-    for i in range(d):
-        distance += pow(abs(data[i] - center), 2)
+    for i in range(len(data)):
+        distance += pow(abs(data[i] - point[i]), 2)
     return sqrt(distance)
-    
+
+
 
 
         
