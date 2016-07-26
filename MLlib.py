@@ -6,6 +6,12 @@ from math import *
 -----------------------
 """
 
+class K_means_data:
+    def __init__(self, data):
+        self.data = data
+        clustur = 0
+
+        
 #Calculate distance from center
 def Calc_distance(data, center, d):
     distance = 0
@@ -15,6 +21,6 @@ def Calc_distance(data, center, d):
         distance += pow(abs(data[i] - center), 2)
     return sqrt(distance)
     
-#First random clusturing
-def Random_clustur(all_data, cluster_num):
-    
+
+
+        
