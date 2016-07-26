@@ -11,7 +11,9 @@ class K_means_data:
         self.data = data
         clustur = 0
 
-
+    #Update object cluster number
+    def Update_clustur(self, center):
+        max = 0
         
         
 #Calculate distance from center
