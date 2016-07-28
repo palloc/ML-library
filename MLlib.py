@@ -25,10 +25,8 @@ def Calc_center(cluster, cluster_num):
     for cluster_data in cluster:
         if cluster_data.cluster == cluster_num:
             for i in len(cluster_data.data):
-                center_data[i] += cluster_data.data[i]/len(cluster_data)
-            
-                
-                
+                center_data[i] += cluster_data.data[i] / len(cluster_data)
+    return center_data
 
 
 class K_means_data:
