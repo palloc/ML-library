@@ -13,8 +13,12 @@ class K_means_data:
 
     #Update object cluster number
     def Update_clustur(self, center):
-        max = 0
-        
+        min = Calc_distance(center[0])
+        self.cluster = 0
+        for i in range(1, len(center)):
+            if min > Calc_distance(center[i]):
+                min = Calc_distance(center[i])
+                self.cluster = i
         
 #Calculate distance from center
 def Calc_distance(data, point):
