@@ -18,16 +18,23 @@ def Calc_distance(data, point):
 
 
 #Calculate coordinates of the center 
-def Calc_center(cluster, cluster_num):
+def Calc_center(clustur, c_num):
     center_data = [0.0 for i in range(len(cluster[0].data))]
     
-    #cluster_data ... K_means_data
-    for cluster_data in cluster:
-        if cluster_data.cluster == cluster_num:
-            for i in len(cluster_data.data):
-                center_data[i] += cluster_data.data[i] / len(cluster_data)
+    #clustur_data ... K_means_data
+    for c_data in cluster:
+        if c_data.cluster == c_num:
+            for i in len(c_data.data):
+                center_data[i] += c_data.data[i] / len(c_data)
     return center_data
 
+
+#Update coordinates of the center
+def Update_center(center_size, cluster):
+    new_center = []
+    for i in range(center_size):
+        new_center.append(Calc_center(cluster, i))
+    return new_center
 
 class K_means_data:
     def __init__(self, data):
