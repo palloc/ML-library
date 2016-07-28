@@ -36,6 +36,7 @@ def Update_center(center_size, cluster):
         new_center.append(Calc_center(cluster, i))
     return new_center
 
+
 class K_means_data:
     def __init__(self, data):
         self.data = data
@@ -51,7 +52,3 @@ class K_means_data:
                 self.cluster = i
     
 
-
-
-
-        
