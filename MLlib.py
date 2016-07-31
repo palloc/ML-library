@@ -39,9 +39,9 @@ def Update_center(center_size, cluster):
 
 
 class K_means_data:
-    def __init__(self, data):
+    def __init__(self, data, num):
         self.data = data
-        self.clustur = random.randint(1,3)
+        self.clustur = random.randint(1, int(num))
 
     #Update object cluster number
     def Update_clustur(self, center):
@@ -53,10 +53,10 @@ class K_means_data:
                 self.cluster = i
     
 #readfile
-def file_open(file_name):
+def file_open(file_name, num):
     clustur_data = []
-    with open("file_name") as file:
+    with open(file_name) as file:
         line = file.readlines()
         for i in line:
-            clustur_data.append(K_means_data(map(int, i.split(","))))
+            clustur_data.append(K_means_data(map(int, i.split(",")), num))
     return clustur_data
