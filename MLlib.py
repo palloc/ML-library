@@ -1,4 +1,5 @@
 from math import *
+import random
 
 """
 -----------------------
@@ -40,7 +41,7 @@ def Update_center(center_size, cluster):
 class K_means_data:
     def __init__(self, data):
         self.data = data
-        clustur = 0
+        self.clustur = random.randint(1,3)
 
     #Update object cluster number
     def Update_clustur(self, center):
@@ -51,4 +52,11 @@ class K_means_data:
                 min = Calc_distance(center[i])
                 self.cluster = i
     
-
+#readfile
+def file_open(file_name):
+    clustur_data = []
+    with open("file_name") as file:
+        line = file.readlines()
+        for i in line:
+            clustur_data.append(K_means_data(map(int, i.split(","))))
+    return clustur_data
