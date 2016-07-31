@@ -51,6 +51,7 @@ class K_means_data:
             if min > Calc_distance(center[i]):
                 min = Calc_distance(center[i])
                 self.cluster = i
+
     
 #readfile
 def file_open(file_name, num):
