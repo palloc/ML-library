@@ -1,8 +1,12 @@
 from MLlib import *
-
+import sys
+clustur_num = 3
 #readfile
-clustur_data = file_open("test_data.txt", str(3))
+clustur_data = file_open(sys.argv[1], str(clustur_num))
 
-print clustur_data[0].cluster
-
+for i in range(10):
+    center = Update_center(clustur_num, clustur_data)
+    for c in clustur_data:
+        c.Update_clustur(center)
+    print center
 
