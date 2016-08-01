@@ -1,6 +1,7 @@
 from math import *
 import random
 
+
 """
 -----------------------
        k-means
@@ -10,7 +11,7 @@ import random
 
 #Calculate distance from center
 def Calc_distance(data, point):
-    distance = 0
+    distance = 0.0
     #Calc d dimentional
     for i in range(len(data)):
         distance += pow(abs(data[i] - point[i]), 2)
@@ -19,38 +20,42 @@ def Calc_distance(data, point):
 
 #Calculate coordinates of the center 
 def Calc_center(clustur, c_num):
-    num = int(c_num)
     center_data = [0.0 for i in range(len(clustur[0].data))]
-    
+    counter = 0
+
+    for i in clustur:
+        if i.clustur == c_num:
+            counter += 1
+            
     #clustur_data ... K_means_data
     for c_data in clustur:
-        if c_data.clustur == num:
+        if c_data.clustur == c_num:
             for i in range(len(c_data.data)):
-                center_data[i] += c_data.data[i] / len(clustur)
+                center_data[i] += c_data.data[i] / counter
     return center_data
 
 
 #Update coordinates of the center
 def Update_center(center_size, clustur):
     new_center = []
-    for i in range(center_size):
-        new_center.append(Calc_center(clustur, str(i)))
+    for i in range(1,center_size+1):
+        new_center.append(Calc_center(clustur, i))
     return new_center
 
 
 class K_means_data:
     def __init__(self, data, num):
         self.data = data
-        self.clustur = random.randint(1, int(num))
+        self.clustur = random.randint(1, num)
 
     #Update object clustur number
     def Update_clustur(self, center):
         min = Calc_distance(self.data, center[0])
-        self.clustur = 0
+        self.clustur = 1
         for i in range(1, len(center)):
             if min > Calc_distance(self.data, center[i]):
                 min = Calc_distance(self.data, center[i])
-                self.clustur = i
+                self.clustur = i+1
 
     
 #readfile
